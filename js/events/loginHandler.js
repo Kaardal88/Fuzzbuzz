@@ -1,9 +1,9 @@
 import { login } from "../auth/login.js";
-import { save } from "../auth/storage.js";
+import { save, saveToken } from "../auth/storage.js";
 import { displayMessage } from "../utils/displayMessage.js";
 
 export function loginHandler() {
-  const form = document.querySelector("#form");
+  const form = document.querySelector("#login-form");
   if (form) {
     form.addEventListener("submit", submitForm);
   }
@@ -16,17 +16,27 @@ async function submitForm(event) {
 
   const fieldset = form.querySelector("fieldset");
   const button = form.querySelector("button");
-  const container = document.querySelector(".message-container");
+  const container = document.querySelector("#message");
 
   try {
     fieldset.disabled = true;
     button.textContent = "Logging in...";
     const response = await login(data);
+    console.log(response);
 
-    save("token", response.accessToken);
-    save("username", response.name);
+    const {
+      data: { accessToken, name },
+    } = response;
 
-    location.href = "/profile/index.html";
+    console.log(response);
+
+    console.log(name);
+
+    saveToken(accessToken);
+    console.log(accessToken);
+    save("username", name);
+
+    location.href = "/profile";
   } catch (error) {
     displayMessage(container, "warning", error.message);
   } finally {

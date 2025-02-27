@@ -19,6 +19,7 @@
   <script src="/js/script.js" defer></script>
   <script src="/js/darkMode.js" defer></script>
   <script src="/js/app.js" type="module"></script>
+  <script src="/js/events/logoutHandler.js" type="module"></script>
 </head>
 <!--For your information: I built this webpage with dark theme in mind. So, when I decided to try out dark/light mode, I had to apply light colors after dark colors, but still use "dark:" because it's function is like a light-switch. I cannot use "light:" e.g. Can be confusing to read, but I am aware of it.-->
 
@@ -50,8 +51,8 @@
             class="p-2 mb-4 ring-offset-2 ring-2 focus:ring-2 rounded-md ring-blue-400 text-gray-400 dark:text-gray-700">
             <a href="/profile.html">Profile</a>
           </li>
-          <li class="p-2 mb-4 ring-offset-2 ring-2 focus:ring-2 rounded-md"><a href="/feed.html">Feed</a></li>
-          <li class="p-2 mb-4 ring-offset-2 ring-2 focus:ring-2 rounded-md ring-red-600"><a href="/index.html">Log
+          <li class="p-2 mb-4 ring-offset-2 ring-2 focus:ring-2 rounded-md"><a href="/feed/index.html">Feed</a></li>
+          <li class="p-2 mb-4 ring-offset-2 ring-2 focus:ring-2 rounded-md ring-red-600"><a>Log
               out</a></li>
         </ul>
 
@@ -95,8 +96,8 @@
                   <img id="moon" src="/images/icons8-moon-50.png" alt="moon darkmode">
                 </button>
               </div>
-              <a href="/index.html" class="p-0 m-0 w-0">
-                <p class="text-gray-400 dark:text-black font-light hover:text-gray-300">Log out</p>
+              <a id="logout" class="text-gray-400 dark:text-black font-lightp-2 m-0 w-auto cursor-pointer">
+                <p class="">Log out</p>
               </a>
 
               <div class="flex w-6 mt-2">
@@ -119,7 +120,7 @@
           </div>
 
           <!-- Right Column (Friends) -->
-          <div class="bg-customGray dark:bg-indigo-100 p-4 rounded-lg flex flex-col space-y-4">
+          <!-- <div class="bg-customGray dark:bg-indigo-100 p-4 rounded-lg flex flex-col space-y-4">
             <h2 class="text-gray-400 dark:text-black mb-2">Friends Online:</h2>
             <div class="bg-gray-600 dark:bg-gray-100 p-2 rounded-md flex items-center space-x-2">
               <div class="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -137,63 +138,21 @@
               <div class="w-2 h-2 bg-green-500 rounded-full"></div>
               <p class="text-gray-100 dark:text-black">Carry Carryson</p>
             </div>
-          </div>
+          </div> -->
           <!--Section for personal posts-->
           <div class="bg-customGray dark:bg-indigo-100  p-4 rounded-lg flex flex-col space-y-4 md:col-span-3">
             <h2 class="text-gray-400 dark:text-black mb-2">Your posts:</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <!--Post 1-->
-              <div class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4">
-                <img src="/images/status-img-1.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4">
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@kaardal88</p>
-                  <p class="text-white dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2 ">
-                    Lorem ipsum dolor
-                    sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at delectus similique ab!
-                  </p>
-                </div>
-              </div>
+              <div id="personal-posts"></div>
+              
+              
 
-              <!--Post 2-->
-              <div class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4 ">
-                <img src="/images/status-image-2.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4">
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@kaardal88</p>
-                  <p class="text-white  dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2 ">
-                    Lorem ipsum dolor
-                    sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at delectus similique ab!
-                  </p>
-                </div>
-              </div>
+             
 
-              <!--Post 3-->
-              <div class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4">
-                <img src="/images/status-img-1.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4">
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@kaardal88</p>
-                  <p class="text-white dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2 ">
-                    Lorem ipsum dolor
-                    sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at delectus similique ab!
-                  </p>
-                </div>
-              </div>
+             
 
-              <!--Post -->
-              <div class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4">
-                <img src="/images/status-image-2.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4">
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@kaardal88</p>
-                  <p class="text-white dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2 ">
-                    Lorem ipsum dolor
-                    sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at delectus similique ab!
-                  </p>
-                </div>
-              </div>
+             
 
 
 
@@ -201,84 +160,7 @@
             </div>
           </div>
 
-          <!--Section for small feed/follow suggestions. NOTES: hovereffect could be that 3D animation, so it looks like separate layers, if the layer image scales more than the actual card. Remember shadow + 3d effect-->
-          <div class="bg-customGray dark:bg-indigo-100 p-4 rounded-lg flex flex-col space-y-4 md:col-span-3">
-            <h2 class="text-gray-400 dark:text-black mb-2">Follow for more fuzz:</h2>
-
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <!--Post 1-->
-              <div
-                class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4 transform sm:hover:scale-100 md:hover:scale-105 transition duration-200 ease-in-out hover:shadow-md hover:shadow-black-lg hover:bg-slate-500">
-
-                <img src="/images/deadlift-guy.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4">
-
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@mike_mikeson</p>
-                  <p class="text-white dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at
-                    delectus similique ab!
-                  </p>
-                  <button class="bg-customOrange pl-4 pr-4 rounded-md font-semibold text-sm mb-2">Follow</button>
-                </div>
-
-              </div>
-
-
-
-              <!--Post 2-->
-              <div
-                class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4 transform sm:hover:scale-100 md:hover:scale-105 transition duration-200 ease-in-out hover:shadow-black-lg hover:bg-slate-500">
-
-                <img src="/images/nature-family.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4 object-cover">
-
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@john_mcjohnson</p>
-                  <p class="text-white dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at
-                    delectus similique ab!
-                  </p>
-                  <button class="bg-customOrange pl-4 pr-4 rounded-md font-semibold text-sm mb-2">Follow</button>
-                </div>
-              </div>
-
-              <!--Post 3-->
-              <div
-                class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4 transform sm:hover:scale-100 md:hover:scale-105 transition duration-200 ease-in-out hover:shadow-black-lg hover:bg-slate-500">
-
-                <img src="/images/deadlift-guy.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4">
-
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@donna_donson</p>
-                  <p class="text-white dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at
-                    delectus similique ab!
-                  </p>
-                  <button class="bg-customOrange pl-4 pr-4 rounded-md font-semibold text-sm mb-2">Follow</button>
-                </div>
-              </div>
-
-              <!--Post 4-->
-              <div
-                class="bg-gray-600 dark:bg-gray-100 p-0 rounded-md flex items-center gap-4 transform sm:hover:scale-100 md:hover:scale-105 transition duration-200 ease-in-out hover:shadow-black-lg hover:bg-slate-500">
-
-                <img src="/images/nature-family.jpg" alt="post image"
-                  class="w-24 h-24 md:w-48 md:h-48 md:flex-col rounded-lg p-4 object-cover">
-
-                <div class="flex-col">
-                  <p class="text-gray-100 dark:text-black font-semibold md:mt-4">@marty_martyson</p>
-                  <p class="text-white dark:text-black text-sm md:text-small lg:text-base md:pr-2 md:pt-2 md:pb-2">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis saepe reprehenderit at
-                    delectus similique ab!
-                  </p>
-                  <button class="bg-customOrange pl-4 pr-4 rounded-md font-semibold text-sm mb-2">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
+         
 
 
 

@@ -2,7 +2,7 @@ import { register } from "../auth/register.js";
 import { displayMessage } from "../utils/displayMessage.js";
 
 export function registerHandler() {
-  const form = document.querySelector("#register-form");
+  const form = document.querySelector("#form");
   if (form) {
     form.addEventListener("submit", submitForm);
   }
@@ -14,13 +14,13 @@ async function submitForm(event) {
   const data = Object.fromEntries(new FormData(form));
 
   const fieldset = form.querySelector("fieldset");
-  const button = form.querySelector("button");
-  const container = document.querySelector(".message-container");
+  const button = form.querySelector("#reg-btn");
+  const container = document.querySelector("#message");
 
   try {
     fieldset.disabled = true;
     button.textContent = "Registering...";
-    const response = await register(data);
+    await register(data);
 
     displayMessage(container, "success", "Registration successful!");
     setTimeout(() => {

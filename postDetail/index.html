@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Feed your buzz with some fuzz from your friends and more. Connect with new fuzzbuzzers and keep up to date with your personalized newsfeed"
+    />
+    <meta name="author" content="Kim-Andre Kårdal" />
+    <meta property="og:title" content="Fuzzbuzz" />
+    <meta
+      property="og:description"
+      content="Fuzzbuzz let's you buzz about your friends fuzz. Connect with your friends and build a buzzy network with others."
+    />
+    <meta property="og:image" content="/images/fb-favicon.png" />
+    <meta property="og:url" content="https://fuzzbuzz.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <title>Feed | FuzzBuzz</title>
+    <link rel="stylesheet" href="/css/output.css" />
+    <link rel="icon" href="/images/fb-favicon.png" />
+    <script src="/js/script.js" defer></script>
+
+    <script src="/js/uploadFiles.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <script src="/js/app.js" type="module"></script>
+  </head>
+
+  <body class="bg-bgBody dark:bg-white">
+    <header
+      class="bg-customOrange dark:bg-indigo-300 dark:text-black shadow-md fixed w-full top-0 z-50"
+    >
+      <nav
+        class="container mx-auto flex justify-between items-center py-4 px-2"
+      >
+        <a href="/profile/index.html">
+          <img
+            src="/images/fuzzbuzz-logo.png"
+            alt="Fuzzbuzz logo"
+            class="w-36"
+          />
+        </a>
+        <div class="hidden md:flex items-center space-x-2">
+          <a
+            href="/profile/index.html"
+            class="text-black font-semibold hover:text-blue-500 hover:underline transition"
+            >Profile</a
+          >
+          <a
+            href="/feed/index.html"
+            class="text-black font-semibold border-b-2 border-customTeal"
+            >Feed</a
+          >
+          <img
+            src="/images/profileimg-some.png"
+            alt="profile image"
+            class="w-10"
+          />
+        </div>
+        <div id="menu-btn" class="md:hidden pr-4">
+          <img
+            src="/images/icons8-menu-50.png"
+            class="w-8"
+            alt="mobile menu icon"
+          />
+        </div>
+      </nav>
+      <div
+        id="mobileNav"
+        class="hidden bg-bgBody dark:bg-indigo-200 py-10 text-white dark:text-black text-center"
+      >
+        <ul class="space-y-4">
+          <li class="p-2 ring-2 rounded-md">
+            <a href="/profile.html">Profile</a>
+          </li>
+          <li
+            class="p-2 ring-2 rounded-md ring-blue-400 text-gray-400 dark:text-black"
+          >
+            <a href="#">Feed</a>
+          </li>
+          <li class="p-2 ring-2 rounded-md ring-red-600">
+            <a href="/index.html">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main
+      class="container mx-auto flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mt-36"
+    >
+      <section
+        class="w-full md:w-3/5 bg-customGray dark:bg-indigo-100 rounded-lg p-4"
+      >
+        <div class="bg-customGray dark:bg-indigo-100 rounded-lg p-4">
+          <div
+            id="single-post-container"
+            class="dark:bg-indigo-100 text-center"
+          >
+            <div id="message"></div>
+            Loading...
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-customTeal text-gray-300 py-10 mt-48 w-full">
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:justify-between">
+          <div>
+            <img
+              src="/images/fuzzbuzz-logo.png"
+              alt="Fuzzbuzz logo"
+              class="w-24"
+            />
+            <p class="mt-2 text-gray-200">
+              We have something fuzzy you can buzz about!
+            </p>
+          </div>
+          <div>
+            <h2 class="font-semibold text-white">Pages</h2>
+            <ul class="mt-4 space-y-2">
+              <li>
+                <a href="/profile.html" class="hover:text-white">Profile</a>
+              </li>
+              <li><a href="#feed-top" class="hover:text-white">Feed</a></li>
+              <li><a href="/" class="hover:text-white">Log out</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 text-center text-gray-300">
+          <p>&copy; 2024 FuzzBuzz | All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
