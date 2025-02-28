@@ -14,13 +14,15 @@ export function renderPersonalPosts(container, posts) {
       authorName = "Unknown";
     }
 
+    const postUrl = `/postDetail/index.html?id=${id}`;
+
     const postElement = document.createElement("div");
     postElement.className =
       "bg-gray-600 dark:bg-gray-100 p-4 rounded-lg shadow";
 
     postElement.innerHTML = `
-      <div class="flex flex-col space-y-4">
-        <h1 class="text-white text-lg font-semibold dark:text-black">${title}</h1>
+      <a href="${postUrl}"><div class="flex flex-col space-y-4">
+        <h1 class="text-white text-lg font-semibold dark:text-black">${title}</h1></a>
         <h2 class="text-white text-sm font-semibold dark:text-black">Av: ${authorName}</h2>
         <p class="text-white dark:text-black text-sm">${body}</p>
         <p class="text-white text-sm font-light italic dark:text-black">Publisert: ${new Date(
@@ -33,18 +35,17 @@ export function renderPersonalPosts(container, posts) {
         }
         <div class="flex justify-between pt-2">
         
-          <div>
+        </div>
+        <div>
             <button data-id="${id}" class="edit-post bg-blue-500 px-4 py-2 rounded-md font-semibold text-sm">Edit</button>
             <button data-id="${id}" class="delete-post bg-red-500 px-4 py-2 rounded-md font-semibold text-sm">Delete</button>
           </div>
-        </div>
       </div>
     `;
 
     container.appendChild(postElement);
   });
 
-  // Event delegation for delete og edit
   container.addEventListener("click", (event) => {
     if (event.target.classList.contains("delete-post")) {
       const id = event.target.getAttribute("data-id");

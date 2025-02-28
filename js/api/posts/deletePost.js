@@ -24,8 +24,8 @@ export async function deletePost(id) {
   }
 
   if (response.status === 204) {
-    return { success: true }; // Returner en bekreftelse hvis responsen er tom
+    return { success: true };
   }
 
-  return await response.json(); // Returner JSON hvis den finnes
+  return await response.json();
 }

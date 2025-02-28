@@ -24,7 +24,7 @@ export async function login(data) {
     throw new Error(json.errors?.[0]?.message || "Login failed");
   }
 
-  const responseBody = await response.json(); // Hent hele responsen som JSON
-  console.log(responseBody); // Logg responsen for å sjekke strukturen
-  return responseBody; // Returner responsen til submitForm
+  const responseBody = await response.json();
+  console.log(responseBody);
+  return responseBody;
 }

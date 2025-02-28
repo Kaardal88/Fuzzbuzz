@@ -1,12 +1,10 @@
 const logoutButton = document.querySelector("#logout");
 
 export function logOut() {
-  // Fjern tokens fra localStorage
   localStorage.removeItem("token");
   localStorage.removeItem("refreshToken");
   localStorage.removeItem("username");
 
-  // Naviger brukeren til innloggingssiden eller forsiden
   window.location.href = "/index.html";
   history.replaceState(null, "", "/index.html");
 

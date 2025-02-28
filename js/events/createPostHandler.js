@@ -1,6 +1,5 @@
 import { createPost } from "../api/posts/createPost.js";
 import { displayMessage } from "../utils/displayMessage.js";
-import { myTag } from "../api/endpoints.js";
 
 export async function createPostHandler() {
   const createPostForm = document.querySelector("#postForm");
@@ -18,8 +17,6 @@ async function submitForm(event) {
   if (!data.media) {
     delete data.media;
   }
-
-  data.tags = [myTag];
 
   const fieldset = form.querySelector("fieldset") || form;
   const submitButton = form.querySelector("#confettiButton");

@@ -99,24 +99,17 @@
         </div>
 <!-- Insert Filter dropdown here -->
 
-<div class="flex flex-col gap-5 bg-white rounded-md p-3 h-fit">
+<div class="flex flex-col gap-5  rounded-md p-3 h-fit">
   <h2 class="text-white text-lg font-semibold dark:text-black">Filtering</h2>
   <form id="filterPostsForm">
     <fieldset class="flex flex-col gap-4">
       <div class="flex flex-col">
         <label for="filterQuery" class=" text-white font-light pb-2 dark:text-black">Filter posts</label>
-        <select class="border-solid border-black outline-none border-2 rounded-md p-2dark:text-black "  name="filterQuery"  required>
-          <option selected disabled >Category</option>
-        </select>
+        <button id="myTag" class="text-black  bg-customOrange p-1  rounded-lg">Personal Tag</button>
+        
+        
       </div>
-      <!-- Look at how I can autoreset filter -->
-      <!-- <button
-        type="button"
-        id="resetFilterButton"
-        class="text-white font-bold py-2.5 px-5 rounded-md bg-gradient-to-r from-red-600 to-orange-500 transition duration-100 hover:from-red-700 hover:to-orange-600"
-      >
-        Reset filter
-      </button> -->
+
     </fieldset>
   </form>
 </div>
@@ -127,6 +120,7 @@
 
     <!-- Main Section -->
     <main class="w-full md:w-3/5 bg-customGray dark:bg-indigo-100  rounded-lg p-4 mt-24">
+      
       <section>
         
         <!-- Section for small feed/follow suggestions -->
@@ -138,7 +132,7 @@
             <!--Create your own post section-->
             <h1 class="text-gray-400 dark:text-black mb-2">Create post</h1>
             <div
-            class="container bg-gray-600 dark:bg-gray-100 p-4 w-full max-w-lg h-auto rounded-md flex items-center flex-col gap-6 shadow-lg">
+            class="container bg-gray-600 dark:bg-gray-100 p-4 w-full  h-auto rounded-md flex items-center flex-col gap-6 shadow-lg">
             <form id="postForm" class="w-full flex flex-col gap-4">
               <input
                 type="text"
@@ -153,12 +147,12 @@
                 class="w-full px-4 py-2 text-gray-900 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
                 rows="4"
               ></textarea>
-              <input
+              <!-- <input
                 type="text"
                 name="tags"
                 placeholder="Tags (comma-separated)"
                 class="w-full px-4 py-2 text-gray-900 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
+              /> -->
               <input
                 type="url"
                 name="mediaUrl"
@@ -185,12 +179,51 @@
 
 
           <h2 class="text-gray-400 dark:text-black mb-2">News feed</h2>
+          
 
          <!--Display posts-->
 <div id="content-container" >
   <div class="dark:bg-indigo-100" id="message"></div>
-  Loading...
+  <div role="status" class="animate-pulse dark:bg-indigo-100 space-y-8 md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center flex-col">
+    <div class="w-full">
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[440px] mb-2.5"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[460px] mb-2.5"></div>
+      
+  </div>
+    <div class="flex items-center justify-center w-full h-100 bg-gray-300 rounded-sm sm:w-96 dark:bg-gray-700 mt-4">
+        <svg class="w-100 h-100 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+        </svg>
+    </div>
+
+    <div class="w-full">
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[440px] mb-2.5"></div>
+      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[460px] mb-2.5"></div>
+      
+  </div>
+    <div class="flex items-center justify-center w-full h-100 bg-gray-300 rounded-sm sm:w-96 dark:bg-gray-700 mt-4">
+        <svg class="w-100 h-100 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+        </svg>
+    </div>
+    
+    
+  
+
 </div>
+
+
+
+  
+</div>
+
+  
 <!-- <div id="jokes-container"></div> -->
 
 
@@ -222,6 +255,8 @@
         </button>
       </form>
     </div>
+
+   
     
     
 

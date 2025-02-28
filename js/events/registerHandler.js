@@ -24,7 +24,7 @@ async function submitForm(event) {
 
     displayMessage(container, "success", "Registration successful!");
     setTimeout(() => {
-      location.href = "/index.html"; // Redirect to login page after success
+      location.href = "/index.html";
     }, 2000);
   } catch (error) {
     displayMessage(container, "warning", error.message);

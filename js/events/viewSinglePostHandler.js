@@ -5,7 +5,6 @@ import { displayMessage } from "../utils/displayMessage.js";
 export async function viewSinglePostHandler() {
   const container = document.querySelector("#single-post-container");
 
-  // Henter ID fra URL
   const params = new URLSearchParams(window.location.search);
   const postId = params.get("id");
 

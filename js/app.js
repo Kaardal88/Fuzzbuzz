@@ -31,6 +31,7 @@ function router() {
     case "/profile/":
     case "/profile/index.html":
       viewPersonalPostsHandler();
+      viewSinglePostHandler();
       logoutListener();
       break;
     case "/postDetail/":

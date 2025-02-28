@@ -16,7 +16,7 @@ export function load(key) {
   try {
     return JSON.parse(value);
   } catch {
-    return value; // Returnerer verdien som en streng hvis JSON.parse feiler
+    return value;
   }
 }
 
@@ -39,5 +39,5 @@ export function getName() {
 }
 
 export function getUserID() {
-  return load("userID"); // Henter brukerens ID fra localStorage
+  return load("userID");
 }

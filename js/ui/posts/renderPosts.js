@@ -33,7 +33,6 @@ export function renderPosts(container, posts) {
     container.appendChild(postElement);
   });
 
-  // Legg til event delegation
   container.addEventListener("click", (event) => {
     if (event.target.classList.contains("delete-post")) {
       const id = event.target.getAttribute("data-id");
