@@ -14,7 +14,7 @@ export function renderPersonalPosts(container, posts) {
       authorName = "Unknown";
     }
 
-    const postUrl = `/postDetail/index.html?id=${id}`;
+    const postUrl = `/post-detail/index.html?id=${id}`;
 
     const postElement = document.createElement("div");
     postElement.className =
