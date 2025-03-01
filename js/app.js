@@ -6,6 +6,8 @@ import { deletePostHandler } from "./events/deletePostHandler.js";
 import { viewPersonalPostsHandler } from "./events/viewPersonalPostsHandler.js";
 import { logoutListener } from "./events/logoutHandler.js";
 import { viewSinglePostHandler } from "./events/viewSinglePostHandler.js";
+import editPostHandler from "./events/editPostHandler.js";
+import { searchPostsHandler } from "./events/searchPostsHandler.js";
 
 function router() {
   const pathname = window.location.pathname;
@@ -16,28 +18,35 @@ function router() {
     case "/index.html":
       loginHandler();
       break;
+
     case "/register/":
     case "/register/index.html":
       registerHandler();
-
       break;
+
     case "/feed/":
     case "/feed/index.html":
       viewPostsHandler();
       createPostHandler();
-      deletePostHandler();
-
+      searchPostsHandler();
       break;
+
     case "/profile/":
     case "/profile/index.html":
       viewPersonalPostsHandler();
-      viewSinglePostHandler();
       logoutListener();
       break;
+
     case "/postDetail/":
     case "/postDetail/index.html":
       viewSinglePostHandler();
       break;
+
+    case "/edit-post/":
+    case "/edit-post/index.html":
+      editPostHandler();
+      break;
+
     default:
       console.warn("No route matched for:", pathname);
   }

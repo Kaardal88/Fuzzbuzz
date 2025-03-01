@@ -18,11 +18,11 @@ export function renderPersonalPosts(container, posts) {
 
     const postElement = document.createElement("div");
     postElement.className =
-      "bg-gray-600 dark:bg-gray-100 p-4 rounded-lg shadow";
+      "bg-gray-600 dark:bg-gray-100 p-4 rounded-lg shadow post";
 
     postElement.innerHTML = `
       <a href="${postUrl}"><div class="flex flex-col space-y-4">
-        <h1 class="text-white text-lg font-semibold dark:text-black">${title}</h1></a>
+        <h1 class="text-white text-lg font-semibold dark:text-black">${title}</h1>
         <h2 class="text-white text-sm font-semibold dark:text-black">Av: ${authorName}</h2>
         <p class="text-white dark:text-black text-sm">${body}</p>
         <p class="text-white text-sm font-light italic dark:text-black">Publisert: ${new Date(
@@ -30,14 +30,14 @@ export function renderPersonalPosts(container, posts) {
         ).toLocaleDateString()}</p>
         ${
           imageUrl
-            ? `<img class="w-full rounded-lg" src="${imageUrl}" alt="${title}">`
+            ? `<img class="w-fit h-auto mx-auto rounded-lg" src="${imageUrl}" alt="${title}"></a>`
             : ""
         }
         <div class="flex justify-between pt-2">
         
         </div>
         <div>
-            <button data-id="${id}" class="edit-post bg-blue-500 px-4 py-2 rounded-md font-semibold text-sm">Edit</button>
+            <a href="${`/edit-post/index.html?id=${id}`}" class="bg-blue-500 px-4 py-2 rounded-md font-semibold text-sm">Edit</a>
             <button data-id="${id}" class="delete-post bg-red-500 px-4 py-2 rounded-md font-semibold text-sm">Delete</button>
           </div>
       </div>
@@ -46,14 +46,20 @@ export function renderPersonalPosts(container, posts) {
     container.appendChild(postElement);
   });
 
-  container.addEventListener("click", (event) => {
-    if (event.target.classList.contains("delete-post")) {
-      const id = event.target.getAttribute("data-id");
-      deletePostHandler(id);
-    }
-    if (event.target.classList.contains("edit-post")) {
-      const id = event.target.getAttribute("data-id");
-      location.href = `/edit-post.html?id=${id}`;
-    }
+  const deleteButtons = container.querySelectorAll(".delete-post");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const shouldDelete = confirm(
+        "Are you sure you want to delete this post?"
+      );
+
+      if (shouldDelete) {
+        const button = event.target;
+        const postContainer = button.closest(".post");
+        const id = event.target.getAttribute("data-id");
+        deletePostHandler(id);
+        postContainer.remove();
+      }
+    });
   });
 }

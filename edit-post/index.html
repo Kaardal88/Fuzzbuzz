@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit post</title>
+    <link rel="stylesheet" href="/css/output.css" />
+    <link rel="icon" href="/images/fb-favicon.png" />
+    <script src="/js/script.js" defer></script>
+    <script src="/js/darkMode.js" defer></script>
+    <script src="/js/app.js" type="module"></script>
+  </head>
+  <body
+    class="bg-bgBody dark:bg-white min-h-screen flex flex-col justify-between items-center"
+  >
+    <main
+      class="w-full md:w-3/5 bg-customGray dark:bg-indigo-100 rounded-lg p-4 mt-24 flex-grow"
+    >
+      <div id="message"></div>
+      <div
+        class="container bg-gray-600 dark:bg-gray-100 p-4 w-full h-auto rounded-md flex items-center flex-col gap-6 shadow-lg"
+      >
+        <form id="editPostForm" class="w-full flex flex-col gap-4">
+          <input type="hidden" name="id" />
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            required
+            class="w-full px-4 py-2 text-gray-900 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <textarea
+            name="body"
+            placeholder="Body"
+            class="w-full px-4 py-2 text-gray-900 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+            rows="4"
+          ></textarea>
+          <!-- <input
+          type="text"
+          name="tags"
+          placeholder="Tags (comma-separated)"
+          class="w-full px-4 py-2 text-gray-900 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        /> -->
+          <input
+            type="url"
+            name="mediaUrl"
+            placeholder="Media URL"
+            class="w-full px-4 py-2 text-gray-900 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <input
+            type="text"
+            name="mediaAlt"
+            placeholder="Media Alt Text"
+            class="w-full px-4 py-2 text-gray-900 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <button
+            id="confettiButton"
+            type="submit"
+            class="w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white dark:bg-indigo-100 dark:text-black font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            Publish
+          </button>
+        </form>
+        <a
+          href="/profile/index.html"
+          class="bg-red-500 hover:bg-red-900 p-1 rounded-md"
+          >Cancel</a
+        >
+      </div>
+    </main>
+    <footer class="bg-customTeal text-gray-300 py-10 mt-48 bottom-0 w-full">
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:justify-between">
+          <div class="mb-6 md:mb-0">
+            <img
+              src="/images/fuzzbuzz-logo.png"
+              alt="fuzzbuzz logo"
+              class="w-24"
+            />
+            <p class="mt-2 text-gray-200">
+              We have something fuzzy you can buzz about!
+            </p>
+          </div>
+
+          <div class="flex space-x-10">
+            <div>
+              <h2 class="font-semibold text-white">Pages</h2>
+              <ul class="mt-4 space-y-2">
+                <li>
+                  <a href="/profile.html" class="hover:text-white">Profile</a>
+                </li>
+                <li><a href="#feed-top" class="hover:text-white">Feed</a></li>
+                <li><a href="/" class="hover:text-white">Log out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center text-gray-300">
+          <p>&copy; 2024 FuzzBuzz | All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

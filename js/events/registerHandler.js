@@ -23,6 +23,7 @@ async function submitForm(event) {
     await register(data);
 
     displayMessage(container, "success", "Registration successful!");
+    form.reset();
     setTimeout(() => {
       location.href = "/index.html";
     }, 2000);

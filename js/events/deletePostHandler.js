@@ -9,8 +9,6 @@ export async function deletePostHandler(id) {
 
     deleteButton.textContent = "Deleting...";
     await deletePost(id);
-
-    window.location.href = "/feed/index.html";
   } catch (error) {
     console.error("Error deleting post:", error.message);
   }

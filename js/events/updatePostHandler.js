@@ -1,10 +1,10 @@
-import { createPost } from "../api/posts/createPost.js";
+import { updatePost } from "../api/posts/updatePost.js";
 import { displayMessage } from "../utils/displayMessage.js";
 
-export async function createPostHandler() {
-  const createPostForm = document.querySelector("#postForm");
-  if (createPostForm) {
-    createPostForm.addEventListener("submit", submitForm);
+export async function updatePostHandler() {
+  const form = document.querySelector("#editPostForm");
+  if (form) {
+    form.addEventListener("submit", submitForm);
   }
 }
 
@@ -13,6 +13,8 @@ async function submitForm(event) {
   const form = event.target;
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
+
+  const id = data.id;
 
   const post = {
     title: data.title,
@@ -31,8 +33,9 @@ async function submitForm(event) {
   try {
     fieldset.disabled = true;
     submitButton.textContent = "Publishing...";
-    await createPost(post);
-    window.location.href = "/feed/index.html";
+    await updatePost(id, post);
+    window.location.href = "/profile/index.html";
+    displayMessage(container, "success", "Post updated");
   } catch (error) {
     console.error("Error creating post:", error.message);
     displayMessage(container, "warning", error.message);
