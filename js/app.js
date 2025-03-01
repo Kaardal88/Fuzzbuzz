@@ -37,8 +37,8 @@ function router() {
       logoutListener();
       break;
 
-    case "/postDetail/":
-    case "/postDetail/index.html":
+    case "/post-detail/":
+    case "/post-detail/index.html":
       viewSinglePostHandler();
       break;
 

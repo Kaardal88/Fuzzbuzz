@@ -7,7 +7,7 @@ export function renderPosts(container, posts) {
     const { title, id, body, media, created } = post;
     const imageUrl = media?.url || "";
 
-    const postUrl = `/postDetail/index.html?id=${id}`;
+    const postUrl = `/post-detail/index.html?id=${id}`;
 
     const postElement = document.createElement("div");
     postElement.className =
