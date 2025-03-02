@@ -5,7 +5,6 @@ import { getToken, getName } from "../../auth/storage.js";
 export async function getPersonalPosts() {
   const name = getName("username");
 
-  console.log(name);
   const url = `${BASE_URL}${ENDPOINTS.getPersonalPosts}/${name}/posts?_author=true`;
   const token = getToken();
 
@@ -22,7 +21,6 @@ export async function getPersonalPosts() {
   };
 
   const response = await fetch(url, options);
-  console.log(response);
 
   if (!response.ok) {
     const json = await response.json();

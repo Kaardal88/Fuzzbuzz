@@ -5,6 +5,18 @@ import { displayMessage } from "../utils/displayMessage.js";
 export async function viewSinglePostHandler() {
   const container = document.querySelector("#single-post-container");
 
+  const backButton = document.getElementById("backToLastLocationButton");
+
+  backButton.addEventListener("click", function () {
+    if (document.referrer.includes("feed.html")) {
+      window.location.href = "feed.html";
+    } else if (document.referrer.includes("profile.html")) {
+      window.location.href = "profile.html";
+    } else {
+      window.history.back();
+    }
+  });
+
   const params = new URLSearchParams(window.location.search);
   const postId = params.get("id");
 

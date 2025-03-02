@@ -3,7 +3,6 @@ export const ENDPOINTS = {
   register: "auth/register",
   login: "auth/login",
   getPosts: "social/posts",
-  /* getPostsByTag: "social/posts?_tag=", */
   getSinglePost: "social/posts/{id}",
   getPersonalPosts: "social/profiles",
   createPost: "social/posts",
@@ -14,5 +13,3 @@ export const ENDPOINTS = {
   nbaTeams: "nba-teams",
   getJokes: "jokes",
 };
-
-/* export const myTag = "myPersonalStuff"; */

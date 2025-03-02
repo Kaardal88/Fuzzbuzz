@@ -8,7 +8,7 @@ export async function viewPersonalPostsHandler() {
     const json = await getPersonalPosts();
 
     const posts = json.data;
-    console.log(posts);
+
     renderPersonalPosts(container, posts);
   } catch (error) {
     console.error("Feil ved henting av personlige innlegg:", error);

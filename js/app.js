@@ -2,7 +2,6 @@ import { loginHandler } from "./events/loginHandler.js";
 import { registerHandler } from "./events/registerHandler.js";
 import { viewPostsHandler } from "./events/viewPostsHandler.js";
 import { createPostHandler } from "./events/createPostHandler.js";
-import { deletePostHandler } from "./events/deletePostHandler.js";
 import { viewPersonalPostsHandler } from "./events/viewPersonalPostsHandler.js";
 import { logoutListener } from "./events/logoutHandler.js";
 import { viewSinglePostHandler } from "./events/viewSinglePostHandler.js";

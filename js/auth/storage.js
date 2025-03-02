@@ -30,7 +30,7 @@ export function saveToken(token) {
 
 export function getToken() {
   const token = localStorage.getItem("token");
-  console.log("Henter token:", token);
+
   return token;
 }
 

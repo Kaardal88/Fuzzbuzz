@@ -16,8 +16,6 @@ export async function deletePost(id) {
 
   const response = await fetch(url, options);
 
-  console.log(`Response status: ${response.status}`);
-
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.errors?.[0]?.message || "Failed to delete post");

@@ -22,18 +22,13 @@ async function submitForm(event) {
     fieldset.disabled = true;
     button.textContent = "Logging in...";
     const response = await login(data);
-    console.log(response);
 
     const {
       data: { accessToken, name },
     } = response;
 
-    console.log(response);
-
-    console.log(name);
-
     saveToken(accessToken);
-    console.log(accessToken);
+
     save("username", name);
 
     location.href = "/profile";
