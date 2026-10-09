@@ -6,6 +6,15 @@ export async function createPostHandler() {
   if (createPostForm) {
     createPostForm.addEventListener("submit", submitForm);
   }
+
+  const newPostButton = document.querySelector("#newPostButton");
+  const postFormContainer = document.querySelector("#postFormContainer");
+  if (newPostButton && postFormContainer) {
+    newPostButton.addEventListener("click", () => {
+      const isHidden = postFormContainer.classList.toggle("hidden");
+      newPostButton.textContent = isHidden ? "New post +" : "New post -";
+    });
+  }
 }
 
 async function submitForm(event) {
@@ -17,6 +26,10 @@ async function submitForm(event) {
   const post = {
     title: data.title,
     body: data.body,
+    tags: data.tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag !== ""),
   };
 
   if (data.mediaUrl.trim() !== "") {
@@ -27,6 +40,7 @@ async function submitForm(event) {
 
   const fieldset = form.querySelector("fieldset") || form;
   const submitButton = form.querySelector("#confettiButton");
+  const container = form.querySelector("#postMessage");
 
   try {
     fieldset.disabled = true;

@@ -9,6 +9,25 @@ export function searchPostsHandler() {
   if (searchButton) {
     searchButton.addEventListener("click", handleSearch);
   }
+
+  const searchInput = document.querySelector("#search-input");
+  if (searchInput) {
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        handleSearch(event);
+      }
+    });
+  }
+
+  const removeSearchButton = document.querySelector("#remove-search");
+  if (removeSearchButton) {
+    removeSearchButton.addEventListener("click", () => {
+      viewPostsHandler();
+      removeSearchButton.style.display = "none";
+      searchInput.value = "";
+    });
+  }
 }
 
 async function handleSearch(event) {
@@ -24,16 +43,10 @@ async function handleSearch(event) {
 
   try {
     const response = await searchPosts(searchValue);
-    removeSearchButton.style.display = "block";
-    renderPosts(container, response.data);
-
     if (removeSearchButton) {
-      removeSearchButton.addEventListener("click", () => {
-        viewPostsHandler();
-        removeSearchButton.style.display = "none";
-        searchInput.value = "";
-      });
+      removeSearchButton.style.display = "block";
     }
+    renderPosts(container, response.data);
   } catch (error) {
     console.error(error);
   }
