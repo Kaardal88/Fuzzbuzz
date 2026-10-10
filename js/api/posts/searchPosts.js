@@ -3,7 +3,7 @@ import { API_KEY } from "../config.js";
 import { getToken } from "../../auth/storage.js";
 
 export async function searchPosts(query) {
-  const url = `${BASE_URL}${ENDPOINTS.searchPosts}${query}`;
+  const url = `${BASE_URL}${ENDPOINTS.searchPosts}${query}&_author=true`;
 
   const token = getToken();
 

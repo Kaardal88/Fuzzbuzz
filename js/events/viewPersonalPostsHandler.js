@@ -11,6 +11,6 @@ export async function viewPersonalPostsHandler() {
 
     renderPersonalPosts(container, posts);
   } catch (error) {
-    console.error("Feil ved henting av personlige innlegg:", error);
+    console.error("Error fetching personal posts:", error);
   }
 }

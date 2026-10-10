@@ -18,28 +18,29 @@ export function renderPersonalPosts(container, posts) {
 
     const postElement = document.createElement("div");
     postElement.className =
-      "bg-gray-600 dark:bg-gray-100 p-4 rounded-lg shadow post";
+      "bg-gray-600 dark:bg-gray-100 p-4 rounded-lg shadow break-words post";
 
     postElement.innerHTML = `
-      <a href="${postUrl}"><div class="flex flex-col space-y-4">
-        <h1 class="text-white text-lg font-semibold dark:text-black">${title}</h1>
-        <h2 class="text-white text-sm font-semibold dark:text-black">Av: ${authorName}</h2>
-        <p class="text-white dark:text-black text-sm">${body}</p>
-        <p class="text-white text-sm font-light italic dark:text-black">Publisert: ${new Date(
-          created
-        ).toLocaleDateString()}</p>
-        ${
+      <a href="${postUrl}" class="flex flex-col space-y-4">
+      ${
           imageUrl
-            ? `<img class="w-fit h-auto mx-auto rounded-lg" src="${imageUrl}" alt="${title}"></a>`
+            ? `<img class="w-fit h-auto mx-auto rounded-lg" src="${imageUrl}" alt="${title}">`
             : ""
         }
-        <div class="flex justify-between pt-2">
+        <h1 class="text-white text-lg font-semibold dark:text-black">${title}</h1>
+        <h2 class="text-white text-sm font-semibold dark:text-black">By: ${authorName}</h2>
+        <p class="text-white dark:text-black text-sm">${body}</p>
+        <p class="text-gray-400 text-xs font-light italic dark:text-gray-500">Published: ${new Date(
+          created
+        ).toLocaleString("en-GB", {
+          dateStyle: "medium",
+          timeStyle: "short",
+        })}</p>
         
-        </div>
-        <div>
-            <a href="${`/edit-post/index.html?id=${id}`}" class="bg-blue-500 px-4 py-2 rounded-md font-semibold text-sm">Edit</a>
-            <button data-id="${id}" class="delete-post bg-red-500 px-4 py-2 rounded-md font-semibold text-sm">Delete</button>
-          </div>
+      </a>
+      <div class="flex items-center gap-2 pt-4">
+        <a href="${`/edit-post/index.html?id=${id}`}" class="px-4 py-1.5 rounded-full text-sm font-medium text-white dark:text-black ring-1 ring-gray-400 hover:ring-white dark:hover:ring-black transition">Edit</a>
+        <button data-id="${id}" class="delete-post px-4 py-1.5 rounded-full text-sm font-medium text-gray-300 dark:text-gray-600 hover:text-white dark:hover:text-black transition">Delete</button>
       </div>
     `;
 

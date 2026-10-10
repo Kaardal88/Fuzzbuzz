@@ -5,6 +5,7 @@ export const ENDPOINTS = {
   getPosts: "social/posts",
   getSinglePost: "social/posts/{id}",
   getPersonalPosts: "social/profiles",
+  getUserName: "social/profiles/{name}",
   createPost: "social/posts",
   updatePost: "social/posts/",
   deletePost: "social/posts/{id}",

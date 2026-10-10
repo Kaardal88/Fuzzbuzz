@@ -19,6 +19,10 @@ async function submitForm(event) {
   const post = {
     title: data.title,
     body: data.body,
+    tags: data.tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag !== ""),
   };
 
   if (data.mediaUrl.trim() !== "") {
@@ -29,17 +33,19 @@ async function submitForm(event) {
 
   const fieldset = form.querySelector("fieldset") || form;
   const submitButton = form.querySelector("#confettiButton");
+  const container = document.querySelector("#message");
 
   try {
     fieldset.disabled = true;
     submitButton.textContent = "Publishing...";
     await updatePost(id, post);
-    window.location.href = "/profile/index.html";
     displayMessage(container, "success", "Post updated");
+    setTimeout(() => {
+      window.location.href = "/profile/index.html";
+    }, 1000);
   } catch (error) {
-    console.error("Error creating post:", error.message);
+    console.error("Error updating post:", error.message);
     displayMessage(container, "warning", error.message);
-  } finally {
     fieldset.disabled = false;
     submitButton.textContent = "Publish";
   }

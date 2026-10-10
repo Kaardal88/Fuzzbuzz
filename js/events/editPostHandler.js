@@ -1,6 +1,7 @@
 import { getSinglePost } from "../api/posts/getSinglePost.js";
 import populateEditForm from "../ui/posts/populateEditForm.js";
 import { updatePostHandler } from "./updatePostHandler.js";
+import { displayMessage } from "../utils/displayMessage.js";
 
 export default async function editPostHandler() {
   const messageCcontainer = document.querySelector("#message");

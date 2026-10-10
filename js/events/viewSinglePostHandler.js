@@ -8,10 +8,10 @@ export async function viewSinglePostHandler() {
   const backButton = document.getElementById("backToLastLocationButton");
 
   backButton.addEventListener("click", function () {
-    if (document.referrer.includes("feed.html")) {
-      window.location.href = "feed.html";
-    } else if (document.referrer.includes("profile.html")) {
-      window.location.href = "profile.html";
+    if (document.referrer.includes("/feed/")) {
+      window.location.href = "/feed/index.html";
+    } else if (document.referrer.includes("/profile/")) {
+      window.location.href = "/profile/index.html";
     } else {
       window.history.back();
     }
